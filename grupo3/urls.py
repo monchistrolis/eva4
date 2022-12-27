@@ -15,8 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+#importar vistas
+from api import views 
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/',obtain_auth_token),
+    path('libros/', views.listar_libros),
+    path('libros/<int:pk>/', views.modificar_libro),
+    path('libros/crear/', views.crear_libro),
+    path('libros/eliminar/<int:pk>/', views.eliminar_libro),
+
+ 
     
 ]
