@@ -21,11 +21,11 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/',obtain_auth_token),
-    path('libros/', views.listar_libros),
-    path('libros/<int:pk>/', views.modificar_libro),
-    path('libros/crear/', views.crear_libro),
-    path('libros/eliminar/<int:pk>/', views.eliminar_libro),
+    path('auth/',obtain_auth_token, name='auth'),
+    path('libros/', views.listar_libros, name='listar_libros'),
+    path('libros/<int:pk>/', views.modificar_libro, name='modificar_libro'),
+    path('libros/crear/', views.crear_libro, name='crear_libro'),
+    path('libros/eliminar/<int:pk>/', views.eliminar_libro, name='eliminar_libro'),
 
  
     
