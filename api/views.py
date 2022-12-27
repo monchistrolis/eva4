@@ -21,7 +21,7 @@ def crear_libro(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 #listado de libros
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def listar_libros(request):
