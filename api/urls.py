@@ -1,12 +1,9 @@
-from django.contrib import admin
-from django.urls import path
+from rest_framework import routers
+from .api import LibroViewSet, AutorViewSet, EditorViewSet
 
-# importar vistas
-from .views import crear_libro,listar_libros,modificar_libro,eliminar_libro
+router = routers.DefaultRouter()
+router.register('api/libros', LibroViewSet, 'libros')
+router.register('api/autores', AutorViewSet, 'autores')
+router.register('api/editores', EditorViewSet, 'editores')
 
-urlpatterns = [
-    path('crear_libro/', crear_libro),
-    path('listar_libros/', listar_libros),
-    path('modificar_libro/<int:pk>', modificar_libro),
-    path('eliminar_libro/<int:pk>', eliminar_libro),
-]
+urlpatterns = router.urls
